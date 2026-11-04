@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CvSU OrgHub Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- ========== 1. SIDEBAR (left menu) ========== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">🎟️</div>
+      <div>
+        <h2>CvSU OrgHub</h2>
+        <small>BACOOR CAMPUS</small>
+      </div>
+    </div>
+
+    <p class="menu-title">STUDENT ORGANIZATIONS</p>
+
+    <nav class="menu">
+      <a href="#" class="active">▦ Overview</a>
+      <a href="#">📅 Events</a>
+      <a href="#">👥 Students</a>
+      <a href="#">🎟️ Registrations <span class="badge">16</span></a>
+      <a href="#">📈 Reports</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="#" class="settings">⚙️ Settings</a>
+      <div class="user">
+        <div class="avatar">OS</div>
+        <div>
+          <strong>Student Affairs</strong><br>
+          <small>Central Government President</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========== 2. MAIN AREA (everything on the right) ========== -->
+  <div class="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div>
+        <h2>Overview</h2>
+        <small>Tuesday, September 24</small>
+      </div>
+      <div class="topbar-right">
+        <input type="text" placeholder="🔍 Search students or org">
+        <button class="bell">🔔</button>
+        <button class="btn-blue">Create event →</button>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- Page title + time buttons -->
+      <p class="blue-text">Live operations</p>
+      <div class="page-title">
+        <div>
+          <h1>Campus events overview</h1>
+          <p>Monitor student organization registrations and attendance in real time.</p>
+        </div>
+        <div class="time-buttons">
+          <button class="selected">Today</button>
+          <button>7 days</button>
+          <button>30 days</button>
+        </div>
+      </div>
+
+      <!-- ===== Four stat cards ===== -->
+      <section class="stats">
+        <div class="card stat">
+          <span class="green-text">+14.2%</span>
+          <p>Total registrations</p>
+          <h3>428</h3>
+          <small>vs last event</small>
+        </div>
+        <div class="card stat">
+          <span class="green-text">+9.4%</span>
+          <p>Checked in</p>
+          <h3>312</h3>
+          <small>72.9% attendance</small>
+        </div>
+        <div class="card stat">
+          <span class="gray-text">27.1%</span>
+          <p>Awaiting arrival</p>
+          <h3>116</h3>
+          <small>of registrations</small>
+        </div>
+        <div class="card stat">
+          <span class="green-text">+18</span>
+          <p>Student IDs scanned</p>
+          <h3>54</h3>
+          <small>in the last hour</small>
+        </div>
+      </section>
+
+      <!-- ===== Chart + Live event card (side by side) ===== -->
+      <section class="two-columns">
+
+        <!-- Chart card: each bar's height is set with style="height: __%" -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Attendance overview</h3>
+            <p>Hourly check-ins for the Student Leaders' Assembly</p>
+          </div>
+          <div class="chart">
+            <div class="bar-group"><div class="bar" style="height: 15%"></div><span>8 AM</span></div>
+            <div class="bar-group"><div class="bar" style="height: 25%"></div><span>9 AM</span></div>
+            <div class="bar-group"><div class="bar" style="height: 35%"></div><span>10 AM</span></div>
+            <div class="bar-group"><div class="bar" style="height: 50%"></div><span>11 AM</span></div>
+            <div class="bar-group"><div class="bar" style="height: 65%"></div><span>12 PM</span></div>
+            <div class="bar-group"><div class="bar" style="height: 80%"></div><span>1 PM</span></div>
+            <div class="bar-group"><div class="bar" style="height: 90%"></div><span>2 PM</span></div>
+          </div>
+        </div>
+
+        <!-- Live event card (dark blue) -->
+        <div class="live">
+          <span class="live-tag">LIVE NOW</span>
+          <h3>Student Leaders' General Assembly 2025</h3>
+          <p>📅 Sep 24, 2025 &nbsp; 📍 CvSU Bacoor Campus</p>
+
+          <h1>73% <small>checked in</small></h1>
+          <!-- The outer box is the track, the inner box is the progress -->
+          <div class="progress"><div class="progress-fill"></div></div>
+          <p>312 / 428</p>
+
+          <div class="mini-stats">
+            <div><strong>34</strong><br><small>ORG OFFICERS</small></div>
+            <div><strong>18</strong><br><small>ORGANIZATIONS</small></div>
+            <div><strong>3</strong><br><small>CHECK-IN DESKS</small></div>
+          </div>
+
+          <button class="btn-white">Open live monitor →</button>
+        </div>
+      </section>
+
+      <!-- ===== Recent registrations table ===== -->
+      <section class="card">
+        <div class="card-header table-header">
+          <div>
+            <h3>Recent registrations</h3>
+            <p>Latest student activity across campus organizations</p>
+          </div>
+          <button class="btn-outline">⬇ Export</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>STUDENT</th>
+              <th>ORGANIZATION</th>
+              <th>CHECK-IN TIME</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Miguel Perez</strong><br><small>202310284@cvsu.edu.ph</small></td>
+              <td>CEIT Student Council</td>
+              <td>09:42 AM</td>
+              <td><span class="status checked">● Checked in</span></td>
+            </tr>
+            <tr>
+              <td><strong>Andrea Cruz</strong><br><small>202210517@cvsu.edu.ph</small></td>
+              <td>Junior Marketing Association</td>
+              <td>09:38 AM</td>
+              <td><span class="status checked">● Checked in</span></td>
+            </tr>
+            <tr>
+              <td><strong>Joshua Navarro</strong><br><small>202310091@cvsu.edu.ph</small></td>
+              <td>Psychology Circle</td>
+              <td>09:31 AM</td>
+              <td><span class="status checked">● Checked in</span></td>
+            </tr>
+            <tr>
+              <td><strong>Katrina Bautista</strong><br><small>202210866@cvsu.edu.ph</small></td>
+              <td>Computer Society</td>
+              <td>—</td>
+              <td><span class="status waiting">● Not arrived</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
