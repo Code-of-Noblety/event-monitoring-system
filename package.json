@@ -1,0 +1,23 @@
+{
+  "name": "event-monitoring-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TempusAozora/event-monitoring-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TempusAozora/event-monitoring-system/issues"
+  },
+  "homepage": "https://github.com/TempusAozora/event-monitoring-system#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
