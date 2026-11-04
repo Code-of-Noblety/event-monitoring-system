@@ -7,15 +7,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
+function doAuth() {
+  // WIP
+}
+
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.sendFile("index.html")
+  // intercept if authenticated
 });
 
-app.get('/dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, "private", "dashboard.html"));
-})
+app.get('/main', (req, res) => {
+  res.sendFile(path.join(__dirname, "private", "main.html"));
+});
+
 
 app.get('/login', (req, res) => {
   res.sendFile("login.html")
