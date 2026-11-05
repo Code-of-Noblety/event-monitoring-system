@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CvSU OrgHub Dashboard</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Alliance Of Computer Scientists Dashboard</title>
+  <link rel="stylesheet" href="../public/styles.css">
 </head>
 <body>
 
   <!-- ========== 1. SIDEBAR (left menu) ========== -->
   <aside class="sidebar">
     <div class="brand">
-      <div class="logo">🎟️</div>
-      <div>
-        <h2>CvSU OrgHub</h2>
-        <small>BACOOR CAMPUS</small>
-      </div>
-    </div>
+  <img src="cat.jpg" alt="Alliance Logo" class="logo">
 
-    <p class="menu-title">STUDENT ORGANIZATIONS</p>
+  <div class="brand-text">
+    <h2>Alliance Of Computer Scientists</h2>
+    <small>BACOOR CAMPUS</small>
+  </div>
+</div>
+
+    <p class="menu-title">COMPUTER SCIENTISTS ORGANIZATIONS</p>
 
     <nav class="menu">
       <a href="#" class="active">▦ Overview</a>
@@ -34,7 +35,7 @@
         <div class="avatar">OS</div>
         <div>
           <strong>Student Affairs</strong><br>
-          <small>Central Government President</small>
+          <small>Alliance of Computer Scientists</small>
         </div>
       </div>
     </div>
@@ -62,8 +63,8 @@
       <p class="blue-text">Live operations</p>
       <div class="page-title">
         <div>
-          <h1>Campus events overview</h1>
-          <p>Monitor student organization registrations and attendance in real time.</p>
+          <h1>ACS events overview</h1>
+          <p>Monitor student registrations and attendance in real time.</p>
         </div>
         <div class="time-buttons">
           <button class="selected">Today</button>
@@ -123,7 +124,7 @@
         <!-- Live event card (dark blue) -->
         <div class="live">
           <span class="live-tag">LIVE NOW</span>
-          <h3>Student Leaders' General Assembly 2025</h3>
+          <h3>Computer Scientists General Assembly 2025</h3>
           <p>📅 Sep 24, 2025 &nbsp; 📍 CvSU Bacoor Campus</p>
 
           <h1>73% <small>checked in</small></h1>
@@ -132,13 +133,13 @@
           <p>312 / 428</p>
 
           <div class="mini-stats">
-            <div><strong>34</strong><br><small>ORG OFFICERS</small></div>
-            <div><strong>18</strong><br><small>ORGANIZATIONS</small></div>
+            <div><strong>34</strong><br><small>Students</small></div>
+            <div><strong>18</strong><br><small>Officers/Committees</small></div>
             <div><strong>3</strong><br><small>CHECK-IN DESKS</small></div>
           </div>
 
           <button class="btn-white">Open live monitor →</button>
-        </div>
+        </div>  
       </section>
 
       <!-- ===== Recent registrations table ===== -->
@@ -155,7 +156,7 @@
           <thead>
             <tr>
               <th>STUDENT</th>
-              <th>ORGANIZATION</th>
+              <th>STATUS</th>
               <th>CHECK-IN TIME</th>
               <th>STATUS</th>
             </tr>
@@ -163,25 +164,25 @@
           <tbody>
             <tr>
               <td><strong>Miguel Perez</strong><br><small>202310284@cvsu.edu.ph</small></td>
-              <td>CEIT Student Council</td>
+              <td>Regular</td>
               <td>09:42 AM</td>
               <td><span class="status checked">● Checked in</span></td>
             </tr>
             <tr>
               <td><strong>Andrea Cruz</strong><br><small>202210517@cvsu.edu.ph</small></td>
-              <td>Junior Marketing Association</td>
+              <td>Regular</td>
               <td>09:38 AM</td>
               <td><span class="status checked">● Checked in</span></td>
             </tr>
             <tr>
               <td><strong>Joshua Navarro</strong><br><small>202310091@cvsu.edu.ph</small></td>
-              <td>Psychology Circle</td>
+              <td>Irregular</td>
               <td>09:31 AM</td>
               <td><span class="status checked">● Checked in</span></td>
             </tr>
             <tr>
               <td><strong>Katrina Bautista</strong><br><small>202210866@cvsu.edu.ph</small></td>
-              <td>Computer Society</td>
+              <td>Regular</td>
               <td>—</td>
               <td><span class="status waiting">● Not arrived</span></td>
             </tr>
