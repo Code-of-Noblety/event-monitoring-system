@@ -6,6 +6,33 @@
 	<title>Register</title>
 </head>
 <body>
-	<h1>Register</h1>
+	<form action="/register" method="post">
+		<div class="container">
+			<h1>Register</h1>
+			<hr>
+		
+			<label for="username"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" name="username" id="username" required>
+			<br>
+
+			<label for="email"><b>Email</b></label>
+			<input type="text" placeholder="Enter Email" name="email" id="email" required>
+			<br>
+
+			<label for="password"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" id="password" required>
+			<br>
+
+			<label for="password-repeat"><b>Repeat Password</b></label>
+			<input type="password" placeholder="Repeat Password" name="password-repeat" id="password-repeat" required>
+
+			<hr>
+			<button type="submit">Register</button>
+		</div>
+
+		<div>
+			<p>Already have an account? <a href="/login">Sign in</a>.</p>
+		</div>
+	</form>
 </body>
 </html>
