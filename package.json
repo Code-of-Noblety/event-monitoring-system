@@ -1,11 +1,12 @@
 {
   "name": "event-monitoring-system",
   "version": "1.0.0",
-  "description": "",
+  "description": "Event Monitoring System",
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "node --watch app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,11 @@
   },
   "homepage": "https://github.com/TempusAozora/event-monitoring-system#readme",
   "dependencies": {
-    "express": "^5.3.0"
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.6"
   }
 }

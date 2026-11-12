@@ -4,8 +4,38 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login</title>
+
+	<style>
+		.hide {
+			display: none;
+		}
+	</style>
 </head>
 <body>
-	<h1>Login page</h1>
+	<form id="custom-form" action="/login" method="post">
+		<div class="container">
+			<h1>Login</h1>
+			<hr>
+			
+			<p id="form-message" style="background-color: rgb(255,150,150); padding: 0.5rem;"></p>
+		
+			<label for="username-email"><b>Username/Email</b></label>
+			<input type="text" placeholder="Enter Username or Email" name="username-email" id="username-email" required>
+			<br>
+
+			<label for="password"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" id="password" required>
+			<br>
+
+			<hr>
+			<button type="submit">Login</button>
+		</div>
+
+		<div>
+			<p>No account yet? <a href="/register">Register</a>.</p>
+		</div>
+	</form>
+
+	<script src="form_submission.js"></script>
 </body>
 </html>
