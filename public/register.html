@@ -4,13 +4,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Register</title>
+
+	<style>
+		.hide {
+			display: none;
+		}
+	</style>
 </head>
 <body>
-	<form action="/register" method="post">
+	<form id="custom-form" action="/register" method="post">
 		<div class="container">
 			<h1>Register</h1>
 			<hr>
-		
+			
+			<p id="form-message" style="background-color: rgb(255,150,150); padding: 0.5rem;"></p>
+
 			<label for="username"><b>Username</b></label>
 			<input type="text" placeholder="Enter Username" name="username" id="username" required>
 			<br>
@@ -34,5 +42,7 @@
 			<p>Already have an account? <a href="/login">Sign in</a>.</p>
 		</div>
 	</form>
+
+	<script src="form_submission.js"></script>
 </body>
 </html>
