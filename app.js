@@ -22,6 +22,19 @@ function doAuth(req, res, next) {
     return next();
 }
 
+function assetAuth(req, res, next) {
+    const token = req.cookies.token;
+    if (!token) return res.status(401).send('Unauthorized');
+    let decoded;
+    try {
+        decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    } catch(err) {
+        console.log("Invalid token detected: " + err);
+        return res.status(401).send('Unauthorized');
+    }
+    next();
+}
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
@@ -32,6 +45,13 @@ app.use(cookieParser());
 
 // Serve public files (CSS, images, JavaScript)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve private files
+app.use(
+    '/private',
+    assetAuth,
+    express.static(path.join(__dirname, 'private'))
+);
 
 // Homepage
 app.get('/', (req, res) => {
@@ -57,8 +77,8 @@ app.post('/login', async (req, res) => {
     const token = jwt.sign({username: fetchedUser.username, email: fetchedUser.email}, process.env.JWT_SECRET_KEY, { expiresIn: "1d" });
     res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: true, 
-        secure: true, 
+        // httpOnly: true, 
+        // secure: true, 
     });
 
     res.redirect('/main');
@@ -95,8 +115,12 @@ app.post('/logout', (req, res) => {
     res.redirect('/login');
 })
 
+app.post('/create-event', (req, res) => {
+    
+})
+
 // Start server
 const port = process.env.PORT || 3000
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`App listening at http://localhost:${port}`);
 });
