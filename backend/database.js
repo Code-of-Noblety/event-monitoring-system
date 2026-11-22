@@ -42,7 +42,7 @@ export async function fetchAuthorizedEvent(user_id, eventId) {
     const [result] = await pool.execute(
         `SELECT e.*
         FROM events e
-        INNER JOIN staffs s ON e.event_id = s.event_id 
+        LEFT JOIN staffs s ON e.event_id = s.event_id 
         WHERE e.event_id = ? AND (e.admin_id = ? OR s.user_id = ?)`,
         [eventId, user_id, user_id]
     )

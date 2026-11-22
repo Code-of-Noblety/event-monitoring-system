@@ -17,7 +17,7 @@ function auth(req, res, next) {
     const token = req.cookies.token;
     if (!token) return next();
     try {
-        req.user = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        req.userToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
     } catch(err) {
         console.log("Invalid token detected: " + err);
         res.clearCookie('token')
@@ -27,12 +27,12 @@ function auth(req, res, next) {
 }
 
 function userAuth(req, res, next) {
-    if (!req.user) return res.redirect('/login');
+    if (!req.userToken) return res.redirect('/login');
     return next();
 }
 
 function authGuard(req, res, next) {
-    if (req.user) return res.redirect('/main');
+    if (req.userToken) return res.redirect('/main');
     return next();
 }
 
@@ -111,35 +111,35 @@ app.post('/logout', (req, res) => {
 })
 
 // events
-app.get('/events/:eventId/{*abc}', auth, userAuth, async (req, res, next) => {
-    const userId = req.user.user_id;
+app.get('/events/:eventId{/*abc}', auth, userAuth, async (req, res, next) => {
+    const userId = req.userToken.uid;
     const eventId = req.params.eventId;
 
-    req.eventData = fetchAuthorizedEvent(userId, eventId);
-    if (!req.eventData) return res.status(404);
-
+    req.eventData = await fetchAuthorizedEvent(userId, eventId);
     next()
 })
 
-app.get('/events/:eventId', (req, res) => {
+app.get('/events/:eventId', (req, res, next) => {
+    if (!req.eventData) return next();
     res.sendFile(frontendPath('event.html'));
 })
 
-app.get('/events/:eventId/event-data', (req, res) => {
+app.get('/events/:eventId/event-data', (req, res, next) => {
+    if (!req.eventData) return res.status(404).send({message: "event data not found"});
     res.status(200).send({eventData: req.eventData})
 })
 
 app.post('/create-event', auth, (req, res) => {
-    if (!req.user) {
+    if (!req.userToken) {
         return res.status(400).send({message: "Unknown user. Please relogin."})
     }
-    if (req.user.role !== 'admin') {
+    if (req.userToken.role !== 'admin') {
         return res.status(400).send({message: "Please request for admin role to create events"})
     }
 
     // create event
     const event = {
-        admin_id: req.user.user_id,
+        admin_id: req.userToken.uid,
         name: req.body.name,
         description: req.body.description,
         start_date: req.body['start-date'],
